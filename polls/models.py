@@ -8,6 +8,10 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     #pub_date=models.DateField(auto_now_add=True)
+    def was_published_recently(self):
+        now=timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date<=now
+
     def __str__(self):
         return self.question_text
 
@@ -31,7 +35,6 @@ class Person(models.Model):
     )
     name = models.CharField(max_length=60)
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
-
 
 
 

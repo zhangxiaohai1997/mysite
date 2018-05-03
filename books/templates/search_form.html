@@ -1,0 +1,37 @@
+{#<html>#}
+{#<head>#}
+{#    <title>Search</title>  {# 网页标题 #}
+{#</head>#}
+{#<body>#}
+{#        {% if errors %}#}
+{#            <ul>#}
+{#                {% for error in errors %}#}
+{#                 <li>{{ error }}</li>  {#输出errors列表中的元素#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        {% endif %}#}
+{#        <form action="search_results" method="get">  {#提交之后跳转到相应网页,此时还是原来网页#}
+{#            <input type="text" name="q">         {#添加文本框#}
+{#            <input type="submit" value="Search">  {#添加提交按钮  名叫Search#}
+{#        </form>#}
+{#</body>#}
+{#</html>#}
+
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    {% if errors %}
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    <form action=""  method="get">   {# ???这里网页跳转有问题 #}
+        <input type="text" name="q">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

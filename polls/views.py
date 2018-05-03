@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect,Http404
 from .models import Question,Choice
 from django.urls import reverse
 from django.views import generic
+#from .forms import QuestionForm
 
 # Create your views here.
 
@@ -34,4 +35,15 @@ def vote(request, question_id):
         #成功处理数据后,自动跳转到结果页面,防止用户连续多次提交
         return  HttpResponseRedirect(reverse('polls:results',args=(question.id,)))
 
-
+# def new_question(request):
+#     """用于添加新问题"""
+#     if request.method!='POST':
+#         form=QuestionForm()
+#     else:
+#         form=QuestionForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect(reverse("polls:new_question"))
+#
+#     context={'form':form}
+#     return render(request,'polls/new_question.html',context)

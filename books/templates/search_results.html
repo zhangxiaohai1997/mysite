@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Book Search</title>
+    </head>
+    <body>
+        <p>You searched for:<strong>{{ query }}</strong></p>
+        {% if books %}
+            <p>Found {{ books|length }} book{{ books|pluralize }}</p>  {#pluralize 模板过滤器，它会根据找到的图书数量输出正确的单复数#}
+            <u>
+                {% for book in books %}
+                    <li>{{ book.title }}</li>
+                {% endfor %}
+            </u>
+        {% else %}
+            <p>No books matched your search criteria.</p>
+        {% endif %}
+    </body>
+</html>
